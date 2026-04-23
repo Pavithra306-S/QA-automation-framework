@@ -1,0 +1,139 @@
+TC_LoginValidation_01
+
+Title - Login validation - with valid username and password
+
+preconditions -
+user in login page
+browser launched
+
+1. open browser
+2. Navigate to URL - "https://www.saucedemo.com/"
+3. enter valid username - standard_user
+
+4. Enter Valid password - secret_sauce
+5. click on Login button
+6. close browser
+
+Expected Outcome -
+User should be logged in
+User should be landed in product pages - validate with page title - 'Products'
+
+TC_LoginValidation_02
+
+Title - Login validation - with invalid username and password
+
+preconditions -
+user in login page
+browser launched
+
+1. open browser
+2. Navigate to URL - "https://www.saucedemo.com/"
+3. enter valid username - standard_user123
+4. Enter Valid password - secret_sauce123
+5. click on Login button
+
+
+Expected Outcome -
+action failed (login not success)
+correct error shown
+error message -  Username and password do not match any user in this service
+user is on the same page
+
+TC_LoginValidation_03
+
+Title - Login validation - with empty username and password
+
+preconditions -
+user in login page
+browser launched
+
+1. open browser
+2. Navigate to URL - "https://www.saucedemo.com/"
+3. enter empty username/ leave it blank -
+4. Enter empty password/ leave it blank -
+5. click on Login button
+
+
+Expected Outcome -
+action failed (login not success)
+correct error shown
+error message -  Username is required
+user is on the same page
+
+TC_LoginValidation_04
+
+Title - Login validation - with valid username and invalid password
+
+preconditions -
+user in login page
+browser launched
+
+1. open browser
+2. Navigate to URL - "https://www.saucedemo.com/"
+3. enter valid username - standard_user
+4. Enter inValid password - abcd
+5. click on Login button
+
+
+Expected Outcome -
+action failed (login not success)
+correct error shown
+error message -  Username and password do not match any user in this service
+user is on the same page
+
+TC_LoginValidation_05
+
+Title - Login validation - with locked out  username and password
+
+preconditions -
+user in login page
+browser launched
+
+1. open browser
+2. Navigate to URL - "https://www.saucedemo.com/"
+3. enter lockedout username - locked_out_user
+4. Enter lockedout user password - secret_sauce
+5. click on Login button
+
+
+Expected Outcome -
+action failed (login not success)
+correct error shown
+error message -  Sorry, this user has been locked out.
+user is on the same page
+
+TC_LoginValidation_06
+
+Title - Login Validation - empty username and valid Password
+
+preconditions
+User already in login page with browser launched
+
+1. open browser
+2. Navigate to URL - "https://www.saucedemo.com/"
+3. leave username empty
+4.enter valid password - secret_sauce
+5. click on login button
+
+Expected Outcome -
+login failed
+validate Error msg - Username is required
+user remain in the login page
+
+TC_LoginValidation_07
+
+Title - Login Validation - valid username and empty Password
+
+preconditions
+User already in login page with browser launched
+
+1. open browser
+2. Navigate to URL - "https://www.saucedemo.com/"
+3. enter Valid username - standard_user
+4. leave password blank-
+5. click on login button
+
+Expected Outcome -
+login failed
+validate Error msg - Password is required
+user remain on the same page(login)
