@@ -23,5 +23,14 @@ class CartPage:
         self.wait.until(EC.element_to_be_clickable(self.remove)).click()
 
     def is_cart_empty(self):
+        try:
+            self.wait.until(
+                EC.presence_of_element_located(self.cart_items)
+            )
+        except:
+            return True
+
+        # wait until no elements remain
         self.wait.until(lambda d: len(d.find_elements(*self.cart_items)) == 0)
+
         return True

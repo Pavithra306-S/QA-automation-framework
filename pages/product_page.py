@@ -26,13 +26,8 @@ class ProductPage:
             EC.presence_of_element_located(self.cart_button)
         )
 
-        # Scroll (important for headless)
-        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
-
-        # Use JS click (most reliable)
         self.driver.execute_script("arguments[0].click();", element)
 
-        # 🔥 Wait for actual navigation
         self.wait.until(EC.url_contains("cart"))
 
     def check_cart_quantity(self):
