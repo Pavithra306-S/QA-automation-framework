@@ -22,7 +22,18 @@ class ProductPage:
         ).click()
 
     def click_cart_button(self):
-        self.wait.until(EC.element_to_be_clickable(self.cart_button)).click()
+        element = self.wait.until(
+            EC.presence_of_element_located(self.cart_button)
+        )
+
+        # Scroll (important for headless)
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+
+        # Use JS click (most reliable)
+        self.driver.execute_script("arguments[0].click();", element)
+
+        # 🔥 Wait for actual navigation
+        self.wait.until(EC.url_contains("cart"))
 
     def check_cart_quantity(self):
         return self.wait.until(EC.visibility_of_element_located(self.cart_quantity)).text
