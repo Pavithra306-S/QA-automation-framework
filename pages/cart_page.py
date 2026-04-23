@@ -15,7 +15,7 @@ class CartPage:
 
 
     def get_cart_page_title(self):
-        return self.wait.until(EC.presence_of_element_located(self.cart_page_title)).text
+        return self.wait.until(EC.visibility_of_element_located(self.cart_page_title)).text
 
     def get_item_in_cart(self):
         return self.wait.until(EC.presence_of_element_located(self.item_in_cart)).text
